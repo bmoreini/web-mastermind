@@ -45,3 +45,25 @@ button {
     margin-right: 19px;
     margin-left: 19px;
 }
+
+button:hover {
+	background-color:magenta;
+}
+
+button:active {
+	background-color:yellow;
+}
+
+.red {
+	background-color:red;
+}
+
+
+
+
+
+
+
+
+
+

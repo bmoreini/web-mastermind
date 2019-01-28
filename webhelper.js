@@ -1,4 +1,4 @@
-var buttonElement = document.getElementById("button1");
+var buttonElement = document.getElementById("submit-guess");
 
 window.onload = start;
 
@@ -9,12 +9,12 @@ function start() {
 }
 
 function story(text) {
-    var currentStoryElement = document.getElementById("currentStory");
-    currentStoryElement.innerHTML = text;
+    var boardElement = document.getElementById("board");
+    boardElement.innerHTML = text;
 }
 
 function setOptions(options) {
-    var dropdown = document.getElementById("choices");
+    var dropdown = document.getElementById("colors");
     while (dropdown.options.length) {
         dropdown.remove(0);
     }
@@ -25,12 +25,12 @@ function setOptions(options) {
 }
 
 function delayText(text, delay) {
-    var currentStoryElement = document.getElementById("currentStory");
+    var boardElement = document.getElementById("board");
     var index = 0;
     story("");
     var callback = function (text) {
 
-        story(currentStoryElement.innerHTML  + text[index]+ "<br />"+ "<br />");
+        story(boardElement.innerHTML  + text[index]+ "<br />"+ "<br />");
         index += 1;
         if (index >text.length-1){
             clearInterval(timer);
@@ -45,10 +45,10 @@ function delayText(text, delay) {
 function setup() {
     // setOptions();
     setOptions(["test 1", "test 2", "test3"]); 
-    var buttonElement = document.getElementById("button1");
-    buttonElement.innerHTML = "What will you do?"; 
+    var buttonElement = document.getElementById("submit-guess");
+    buttonElement.innerHTML = "Submit color choices"; 
     buttonElement.onclick = function () {
-    var dropdown = document.getElementById("choices");
+    var dropdown = document.getElementById("colors");
     console.log(dropdown.value);
     checkAnswers(dropdown.value);
 }
