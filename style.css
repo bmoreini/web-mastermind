@@ -57,3 +57,12 @@ button:hover {
 button:active {
     background-color:yellow;
 }
+
+.hide {
+	 display: none;
+	}
+	
+.show {
+	display: block;
+	}
+	
