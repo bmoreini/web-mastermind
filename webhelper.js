@@ -4,8 +4,20 @@ window.onload = start;
 
 function start() {
     setup();
-    // town();
-    town();
+}
+
+function setup() {
+	code=setCode(colors); 
+	var welcome="<h1>Welcome to Mastermind!</h1>\n<p>Here are instructions.</p>"+code;
+    var buttonElement = document.getElementById("submit-guess");
+    buttonElement.innerHTML = "Submit color choices"; 
+	var board = document.getElementById("board");
+	board.innerHTML=welcome;
+    buttonElement.onclick = function () {
+		var dropdown = document.getElementById("colors");
+		console.log(dropdown.value);
+		checkAnswers(dropdown.value);
+	}
 }
 
 function story(text) {
@@ -42,14 +54,4 @@ function delayText(text, delay) {
 }
 
 
-function setup() {
-    // setOptions();
-    setOptions(["test 1", "test 2", "test3"]); 
-    var buttonElement = document.getElementById("submit-guess");
-    buttonElement.innerHTML = "Submit color choices"; 
-    buttonElement.onclick = function () {
-    var dropdown = document.getElementById("colors");
-    console.log(dropdown.value);
-    checkAnswers(dropdown.value);
-}
-}
+

@@ -12,9 +12,6 @@ colors = ["r","b","g","w","c","y"];
 var thisTurn = [], turnRecords = [];
 var alertString="";
 
-main();
-/* Main Function */
-
 // define Main function
 function main() {
 	// tell player the colors
