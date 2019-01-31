@@ -9,6 +9,10 @@ div#console{
     width: 700px;
     margin:25px 20% 0 20%;
 }
+.hide {
+	display:none;
+}
+
 .magenta { background-color:magenta; }
 .green { background-color:green; }
 .cyan { background-color:cyan; }
@@ -57,12 +61,3 @@ button:hover {
 button:active {
     background-color:yellow;
 }
-
-.hide {
-	 display: none;
-	}
-	
-.show {
-	display: block;
-	}
-	
