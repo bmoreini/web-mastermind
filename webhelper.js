@@ -40,7 +40,7 @@ function getGuessStub() {
 function newGetGuess() {
 	var guess =[]; 
 	var turn = 1;
-	var alertString="<h1>Mastermind</h1><p>Guess "+turn+":";
+	var alertString="<h1>Mastermind</h1><p>Guess "+turn+": ";
 	for (i=0;i<4;i++) {
 		g=document.getElementById(i);
 		guess[i]=g.options[g.selectedIndex].value;
