@@ -19,3 +19,13 @@ WebHelper Changes from 1/31:
 3. Use guess[i]=g.options[g.selectedIndex].value to get the value of each guess. 
 4. Output the guess array to board, with .join(" ") to clean out commas. 
 5. Get confused about next steps (oops!)
+
+WebHelper Changes from 2/1:
+1. Move globals from Mastermind.js to webhelper.js
+2. Remove turn=0;
+3. Create function masterMain and pass guess to it
+4. Move board writing into masterMain
+5. Added the || separator to alertString
+6. Make sure code is passed and received by all functions within a game
+7. Set feeback equal to the testGuess feedback function, sending it code and guess
+8. Concat feedback with alertString, joining feedback with " "
