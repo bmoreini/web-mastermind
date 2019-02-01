@@ -3,6 +3,11 @@ var buttonElement = document.getElementById("submit-guess");
 window.onload = start;
 
 var turn=1;
+var colors=[], code=[], guess=[], feedback=[];
+colors = ["r","b","g","w","c","y"];
+// add arrays for thisTurn, turnRecords
+var thisTurn = [], turnRecords = [];
+var alertString="";
 
 function start() {
     setup();
@@ -15,7 +20,7 @@ function setup() {
 	var board = document.getElementById("board");
 	board.innerHTML=welcome; 
     buttonElement.onclick = function () {
-		startGame();
+		code=startGame();
 	}
 }
 
@@ -27,8 +32,9 @@ function startGame() {
 	var board = document.getElementById("board");
 	board.innerHTML=startPlay;
 	buttonElement.onclick = function () {
-		newGetGuess();
+		newGetGuess(code);
 	}
+	return code;
 }
 
 function getGuessStub() {
@@ -37,18 +43,23 @@ function getGuessStub() {
 	board.innerHTML=alertString;
 }
 
-function newGetGuess() {
+function newGetGuess(code) {
 	var guess =[]; 
-	var turn = 1;
-	var alertString="<h1>Mastermind</h1><p>Guess "+turn+": ";
 	for (i=0;i<4;i++) {
 		g=document.getElementById(i);
 		guess[i]=g.options[g.selectedIndex].value;
 	}
-	alertString=alertString.concat(guess.join(" "));
-	board.innerHTML=alertString;
+	masterMain(code,guess);
 }
 
+function masterMain(code,guess){
+	feedback = testGuess(code,guess);
+	var alertString="<h1>Mastermind</h1><p>Guess "+turn+": ";
+	alertString=alertString.concat(guess.join(" "));
+	alertString=alertString.concat(" || ");
+	alertString=alertString.concat(feedback.join(" "));
+	board.innerHTML=alertString;
+}
 
 
 

@@ -5,12 +5,7 @@
 /* Initializations */
 // colors, code, guess, feedback (arrays) and turn (0);
 // populate colors = r,b,g,w,c,y
-var colors=[], code=[], guess=[], feedback=[];
-var turn=0;
-colors = ["r","b","g","w","c","y"];
-// add arrays for thisTurn, turnRecords
-var thisTurn = [], turnRecords = [];
-var alertString="";
+
 
 // define Main function
 function main() {
