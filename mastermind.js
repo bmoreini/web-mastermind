@@ -1,17 +1,4 @@
 /* Class Mastermind */
-// NOTE: This file stores the guess and turns in thisTurn, and stores thisTurn in turnRecords.  
-// Test to ensure data is stored correctly.
-
-/* Initializations */
-// colors, code, guess, feedback (arrays) and turn (0);
-// populate colors = r,b,g,w,c,y
-var colors=[], code=[], guess=[], feedback=[];
-var turn=0;
-colors = ["r","b","g","w","c","y"];
-// add arrays for thisTurn, turnRecords
-var thisTurn = [], turnRecords = [];
-var alertString="";
-
 // define Main function
 function main() {
 	// tell player the colors
