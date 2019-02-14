@@ -1,10 +1,11 @@
 /* Class Mastermind */
+
 // define Main function
 function main() {
 	// tell player the colors
 	alert("Colors include [r]ed, [c]yan, [y]ellow, [w]hite, [b]lack, [g]reen.");
 	// set code = setCode(colors)
-	code=setCode(colors);  
+	code=setCode(colors);
 	// we're going to loop as long as the answer is wrong and the player didn't want to quit, so:
 	// keep looping while fourth feedback is not a "b" and first guess is not a "q"
 	while (feedback[3]!="b" && guess[0]!="q")  {
@@ -13,15 +14,15 @@ function main() {
 		// set guess = getGuess
 		guess=getGuess(alertString);
 		// set feedback = testGuess(guess)
-		feedback=testGuess(code,guess); 
+		feedback=testGuess(code,guess);
     // store guess and feedback in thisTurn
 		thisTurn=addTurn(guess,feedback);
 		// push thisTurn to turnRecords
 		turnRecords.push(thisTurn);
     // alert the guess and feedback for all turns (ugly display)
 		//alert("Turn and Feedback "+turnRecords);
-		alertString=formatTurnRecords(turnRecords,alertString);
-		//alert("Guess "+turn+" : "+guess+" returns: "+feedback); 
+		formatTurnRecords(turnRecords,alertString);
+		//alert("Guess "+turn+" : "+guess+" returns: "+feedback);
 	}
 	// alert "Charlie you've won" if while loop ended with first condition
 	if (feedback[3]=="b") {
@@ -32,7 +33,7 @@ function main() {
 		alert("Quitter!");
 	}
 }
-	
+
 /* Functions */
 
 /* Create the Secret Code */
@@ -41,7 +42,7 @@ function setCode(colors){
 	for(var i=0; i<4; i++){
 		code[i]=colors[Math.floor(Math.random()*6)];
 	}
-	console.log(code);
+	console.log("secret code "+code);
 	return code;
 }
 
@@ -75,7 +76,7 @@ function testGuess(code,guess){
 			tempGuess[g]="";
 			tempCode[g]="";
 		}
-	}	
+	}
 	// count the whites and erase tempcode and tempguess as you go - two nested loops
 	for (g=0;g<4;g++){
 		for (var c=0;c<4; c++){
@@ -89,7 +90,7 @@ function testGuess(code,guess){
 		}
 	}
 	// console.log the feedback
-	console.log("Blacks = "+b+" and Whites equals "+w);
+	// console.log("Blacks = "+b+" and Whites equals "+w);
 	// call the feedback function, sending it black and white counts
 	var feedback=formatFeedback(b,w);
 	// return the feedback
@@ -97,7 +98,7 @@ function testGuess(code,guess){
 }
 
 function formatFeedback(b,w){
-	var feedback=[]; 
+	var feedback=[];
 	for (var i=0;i<b;i++){
 		feedback[i]="b";
 	}
@@ -118,31 +119,31 @@ function addTurn(guess,feedback){
 		// if index 0 - 3, write guess sub index
 		if (i < 4) {
 			thisTurn[i]=guess[i];
-		} 
+		}
 		// if index > 3, write feedback sub index-4 to correct for position
 		if (i > 3) {
 			thisTurn[i]=feedback[i-4];
 		}
-	} // end loop	
+	} // end loop
 	// console log thisTurn
-	console.log("thisTurn = "+thisTurn);
+	// console.log("thisTurn = "+thisTurn);
   // NOTE: Once you get thisTurn console logged, comment out ALL OTHER console.logs except the code
 	// return thisTurn
 	return thisTurn;
-} // end function	
+} // end function
 
 /* Function to format turnRecords */
-// Define function formatTurnRecords, with parameters turnRecords and alertString 
+// Define function formatTurnRecords, with parameters turnRecords and alertString
 function formatTurnRecords(turnRecords,alertString){
 	// initialize thisGuess string
 	var thisGuess = "";
 	// initialize thisFeedback string
 	var thisFeedback = "";
 	// clear alertString
-	alertString="";
+	//alertString="";
 	// turnRecords is a 2D array. Each row is one turn. Loop over each turn.
 	for (var row=0;row<turn;row++) {
-		// For each row, start with “Guess”, then turn number (row + 1) plus colon “:” 
+		// For each row, start with “Guess”, then turn number (row + 1) plus colon “:”
 		alertString = alertString.concat("Guess "+(row+1)+" : ");
 		// Assign to thisGuess the first 4 values of turnRecords for this row (that turn’s guess) and join them with spaces.
 		thisGuess=turnRecords[row].slice(0, 4).join(" ");
@@ -155,7 +156,7 @@ function formatTurnRecords(turnRecords,alertString){
 		// Add thisFeedback to alertString
 		alertString = alertString.concat(thisFeedback);
 		// Add a line break to alertString
-		alertString = alertString.concat("\n");
+		alertString = alertString.concat("<br />\n");
 		// end loop
 	}
 	// return alertString

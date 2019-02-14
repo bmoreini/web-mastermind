@@ -13,22 +13,14 @@ div#console{
 	display:none;
 }
 
-.magenta { background-color:magenta; }
-.green { background-color:green; }
-.cyan { background-color:cyan; }
-.red { background-color:red; }
-.white { background-color:white; }
-.black { background-color:black;color:white; }
-.yellow { background-color:yellow; }
-
 div#board {
     border-radius: 5px;
     font-size: 25px;
     background-color: white;
     padding:10px;
-	margin:20px 5%;
+	  margin:20px 5%;
     width: 87%;
-    height: 300px;
+    height: 320px;
 }
 
 ol#colors {
@@ -60,4 +52,61 @@ button:hover {
 
 button:active {
     background-color:yellow;
+}
+
+/* Graphic Mastermind Model CSS */
+
+.m { background-color:magenta; }
+.g { background-color:green; }
+.c { background-color:cyan; }
+.r { background-color:red; }
+.w { background-color:white; }
+.b { background-color:black;color:white; }
+.y { background-color:yellow; }
+
+
+#guesses li {
+    list-style:none;
+    list-style-type:none;
+    list-style-image:none;
+}
+
+ul#code {
+    margin-left:-50px;
+}
+
+ul ul li {
+  float: left;
+  margin-left: 5px;
+  width: 30px;
+  height: 28px;
+  border-radius: 20px;
+}
+ 
+ul#code li {
+    border: 2px solid #999;
+}
+
+ul#feedback li {
+    border: 2px solid magenta;
+}
+
+ul#feedback li.divider {
+    border:none!important;
+    border-radius:none!important;
+    background-color:transparent;
+    font-size:30pt;
+    color:magenta;
+    font-weight:bold;
+    padding-left:10px;
+    margin-top:-10px;
+}
+
+.clear-both {
+  clear:both;
+  padding-top:15px;
+}
+
+.divider {
+	margin-right: 20px;
 }
